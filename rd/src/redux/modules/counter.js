@@ -4,15 +4,17 @@ const MINUS_ONE = "MINUS_ONE";
 
 
 // 추가된 코드 👇 - Action Creator를 만들어 줍니다. 
-export const plusOne = () => {
+export const plusOne = (payload) => {
   return {
     type: PLUS_ONE,
+    payload,
   };
 };
 
-export const minusOne = () => {
+export const minusOne = (payload) => {
   return {
     type: MINUS_ONE,
+    payload,
   };
 };
 
@@ -24,9 +26,9 @@ const counter=(state=initialState,action)=>{
     console.log(action);
     switch(action.type){
         case PLUS_ONE:
-            return {number:state.number +1,};
+            return {number : state.number + action.payload,};
         case MINUS_ONE:
-            return {number:state.number -1,};
+            return {number : state.number - action.payload,};
         default:
             return state;
     }
