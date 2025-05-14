@@ -1,4 +1,5 @@
 import React from "react";
+import App from "@/App";
 
 const boxStyle = {
   width: "100px",
@@ -12,9 +13,14 @@ const boxStyle = {
   alignItems: "center",
 };
 
-function Box1() {
+function Box1({initCount}) {
   console.log("Box1이 렌더링되었습니다.");
-  return <div style={boxStyle}>Box1</div>;
+
+  const onMinusButtonClickHandler=()=> initCount();
+  return (<div style={boxStyle}>
+    <button onClick={onMinusButtonClickHandler}>reset</button>
+  </div>
+  );
 }
 
 export default React.memo(Box1);
